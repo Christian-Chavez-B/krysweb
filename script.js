@@ -39,3 +39,13 @@ form.addEventListener("submit", function(e) {
         message.innerHTML = "❌ Ocurrió un error. Intenta nuevamente.";
     });
 });
+
+/* === EFECTO GIRAR LAS CARTAS === */
+// Girar cartas en móvil al tocar
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+    card.addEventListener('click', function() {
+        this.classList.toggle('is-flipped');
+    });
+});

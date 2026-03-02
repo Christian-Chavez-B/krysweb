@@ -295,7 +295,8 @@
     transform-style: preserve-3d;
 }
 
-.card:hover .card-inner{
+.card:hover .card-inner,
+.card.is-flipped .card-inner {
     transform: rotateY(180deg);
 }
 
@@ -506,17 +507,21 @@
 /* RESPONSIVE */
 @media (max-width:768px){
 
-    .valores-track{
-        animation: none;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding-left: 20px;
+.valores-track {
+        animation: none; /* Mantenemos la animación apagada para que el usuario controle el scroll */
+        display: flex;
+        overflow-x: auto; /* Permite scroll horizontal */
+        scroll-snap-type: x mandatory; /* Hace que las cartas "encajen" al deslizar */
+        -webkit-overflow-scrolling: touch; /* Suavidad extra en iOS */
+        padding: 20px;
+        gap: 20px;
     }
-
-    .valor-card{
-        scroll-snap-align: center;
-        min-width: 180px;
-        height: 240px;
+    
+    .valor-card {
+        scroll-snap-align: center; /* La carta se centra al soltar el dedo */
+        min-width: 250px; /* Un poco más anchas para que se vean bien en móvil */
+        height: auto;
+        flex: 0 0 auto;
     }
 
     .valores-slider::before,
@@ -698,7 +703,7 @@
     position: absolute; /* Cambiado de fixed a absolute */
     bottom: 20px;       /* Distancia desde el fondo de la sección contacto */
     left: 20px;         /* Distancia desde la izquierda de la sección contacto */
-    background: rgba(255, 255, 255, 0.05); /* Fondo sutil para que no tape */
+    background: rgb(67, 74, 109); /* Fondo sutil para que no tape */
     padding: 15px;
     border-radius: 8px;
     border-left: 3px solid #00C2CB;
