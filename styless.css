@@ -285,6 +285,9 @@
     width: 220px;
     height: 220px;
     perspective: 1000px;
+
+    cursor: pointer;
+    user-select: none; /* Evita seleccionar texto al tocar rápido */
 }
 
 .card-inner{
@@ -367,9 +370,10 @@
 
 /* CONTENEDOR GENERAL */
 .valores-slider{
-    position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden; /* Oculta la barra de scroll */
+    scroll-behavior: smooth;
+    padding: 20px 0;
 }
 
 /* DEGRADADOS LATERALES */
@@ -397,9 +401,11 @@
 /* PISTA */
 .valores-track{
     display: flex;
-    gap: 35px;
-    animation: scroll 40s linear infinite;
-    width: max-content;
+    flex-direction: row; /* Fuerza la fila */
+    flex-wrap: nowrap;   /* EVITA que se pongan una sobre otra */
+    gap: 20px;
+    width: max-content;  /* Importante para que el contenedor se estire a lo largo */
+    animation: none;
 }
 
 /* PAUSA AL PASAR EL MOUSE */
@@ -410,30 +416,18 @@
 /* CARTAS */
 
 .valor-card{
-    width: 180px;          /* 👈 tamaño fijo */
-    height: 240px;         /* 👈 todas iguales */
-    flex: 0 0 auto;        /* evita que cambien tamaño */
-
+    width: 220px;        /* Ancho fijo para cada carta */
+    flex: 0 0 auto;      /* EVITA que las cartas se encojan o crezcan */
+    height: 280px;
     background: linear-gradient(145deg, #111827, #1f2937);
     border-radius: 20px;
-    padding: 22px;
-
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-
     text-align: center;
     color: white;
-
-    position: relative;
-    overflow: hidden;
-
-    box-shadow: 
-        0 10px 25px rgba(0,0,0,0.4),
-        inset 0 0 0 1px rgba(255,255,255,0.05);
-
-    transition: all 0.4s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 .valor-card:hover{
@@ -516,7 +510,7 @@
         padding: 20px;
         gap: 20px;
     }
-    
+
     .valor-card {
         scroll-snap-align: center; /* La carta se centra al soltar el dedo */
         min-width: 250px; /* Un poco más anchas para que se vean bien en móvil */
@@ -524,10 +518,54 @@
         flex: 0 0 auto;
     }
 
+    .valores-track::-webkit-scrollbar {
+        display: none;
+    }
+
     .valores-slider::before,
     .valores-slider::after{
         display: none;
     }
+}
+
+/* === BOTONES === */
+.valores-container-relativo {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 50px; /* Espacio para las flechas */
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #00C2CB;
+    color: #0B132B;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.nav-btn:hover { background: white; }
+.prev { left: 0; }
+.next { right: 0; }
+
+/* En móvil, hacemos las flechas un poco más pequeñas */
+@media (max-width: 768px) {
+    .valores-container-relativo {
+        padding: 0 10px;
+    }
+    .valores-slider {
+        overflow-x: auto; /* Permite scroll táctil en móvil */
+    }
+    .nav-btn { display: none; } /* Opcional: ocultar flechas en móvil y usar dedo */
 }
 
 /* === CLIENTES === */
@@ -680,7 +718,25 @@
     }
 
     .contenedor-cuadros {
-        gap: 20px;
+        display: flex;
+        flex-direction: row; /* Fuerza horizontal */
+        overflow-x: auto;    /* Permite deslizar con el dedo */
+        justify-content: flex-start;
+        padding: 20px;
+        gap: 15px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .servicios .card {
+        flex: 0 0 260px; /* Tamaño fijo para que no se aplasten */
+        scroll-snap-align: center;
+    }
+
+    /* Flechas más pequeñas en móvil */
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
     }
 }
 
