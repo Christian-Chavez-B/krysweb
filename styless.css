@@ -141,6 +141,7 @@
   color: whitesmoke;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   transition: 0.4s ease;
+  border: 8px solid #00C2CB;
 }
 
 .mision:hover,
@@ -482,8 +483,72 @@
 }
 
 /* === CLIENTES === */
+
 .clientes {
-    background-color: #aee3e6;
+  background-color: #0398a0;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+}
+
+.contenedor4 {
+  display: flex;              /* Los pone en horizontal */
+  justify-content: center;    /* Centra los cuadros */
+  gap: 40px;                  /* Espacio entre ellos */
+  flex-wrap: wrap;            /* En móvil se bajan */
+}
+
+.card {
+  width: 280px;
+  height: 300px;
+  background: rgba(11, 19, 43, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 25px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 180px;        /* MISMO ANCHO PARA TODAS */
+  height: 120px;       /* MISMA ALTURA PARA TODAS */
+  object-fit: contain; /* Evita que se deformen */
+  margin: 15px 0;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #0077ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.card a:hover {
+  background: #005fcc;
+}
+
+.titulo-clientes {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  color: #0B132B;
 }
 
 /* === SECCION CONTACTO ===*/
@@ -516,7 +581,9 @@
     flex-wrap: wrap;
 }
 
-/* FORMULARIO */
+
+
+/* === FORMULARIO === */
 .formulario{
     display: flex;
     flex-direction: column;
