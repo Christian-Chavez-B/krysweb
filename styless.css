@@ -349,8 +349,6 @@
 
 /* === SECCION VALORES === */
 
-/* === SECCION VALORES === */
-
 .valores{
     background: linear-gradient(180deg, #0B132B 0%, #111c3d 100%);
     padding: 110px 0;
@@ -572,13 +570,13 @@
   flex-wrap: wrap;            /* En móvil se bajan */
 }
 
-.card {
+.carta {
   width: 280px;
   height: 300px;
   background: rgba(11, 19, 43, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 8px solid rgba(9, 208, 235);
   padding: 25px;
   text-align: center;
   border-radius: 12px;
@@ -591,29 +589,30 @@
   justify-content: space-between;
 }
 
-.card:hover {
+.carta:hover {
   transform: translateY(-5px);
 }
 
-.card img {
-  width: 180px;        /* MISMO ANCHO PARA TODAS */
-  height: 120px;       /* MISMA ALTURA PARA TODAS */
+.carta img {
+  width: 250px;        /* MISMO ANCHO PARA TODAS */
+  height: 180px;       /* MISMA ALTURA PARA TODAS */
   object-fit: contain; /* Evita que se deformen */
   margin: 15px 0;
+  border-radius: 8px;
 }
 
-.card a {
+.carta a {
   display: inline-block;
   margin-top: 10px;
   padding: 8px 15px;
-  background: #0077ff;
-  color: white;
+  background: #fffb00;
+  color: rgb(8, 8, 8);
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
 }
 
-.card a:hover {
+.carta a:hover {
   background: #005fcc;
 }
 
@@ -673,6 +672,11 @@
     border-radius: 8px;
     border: none;
     font-family: 'Poppins', sans-serif;
+}
+
+.formulario input:hover,
+.formulario textarea:hover{
+    background-color: #c7c6be;
 }
 
 .formulario button{
