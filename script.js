@@ -39,3 +39,23 @@ form.addEventListener("submit", function(e) {
         message.innerHTML = "❌ Ocurrió un error. Intenta nuevamente.";
     });
 });
+
+// === FRASES MISION VISION EFECTO ALEATORIO ===
+
+const frases = document.querySelectorAll(".frase");
+
+function activarFraseAleatoria(){
+
+    // quitar activas
+    frases.forEach(frase=>{
+        frase.classList.remove("activa");
+    });
+
+    // elegir una aleatoria
+    const random = Math.floor(Math.random() * frases.length);
+
+    frases[random].classList.add("activa");
+}
+
+// ejecutar continuamente
+setInterval(activarFraseAleatoria, 900);

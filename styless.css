@@ -58,7 +58,7 @@
     gap: 60px;
 
     padding: 15px 40px;
-    background-color: #aee3e6;
+    background-color: rgba(174, 227, 230, 0.8);
 
     z-index: 1000;
 }
@@ -169,22 +169,30 @@
 /* FRASES ALREDEDOR */
 /* ===================================== */
 
-.frase {
+/* Estado normal (opaco) */
+.frase{
   position: absolute;
   width: 260px;
   font-weight: 600;
-  font-size: 18px;  
+  font-size: 18px;
   color: rgba(16, 160, 204, 0.08);
-  transition: 0.4s ease;
   line-height: 1.4;
+  transition: all 0.8s ease;
+}
+
+/* Estado iluminado */
+.frase.activa{
+  color: #aee3e6;
+  transform: scale(1.05);
+  text-shadow: 0 0 12px rgba(174,227,230,0.8);
 }
 
 /* Hover individual */
-
+/*
 .frase:hover {
   color: #aee3e6;
   transform: scale(1.05);
-}
+}*/
 
 /* POSICIONAMIENTO ESTRATÉGICO */
 
@@ -557,10 +565,35 @@
 /* === CLIENTES === */
 
 .clientes {
-  background-color: #0398a0;
-  padding: 100px 20px;
+  position: relative;
+  padding: 120px 20px;
   text-align: center;
   color: white;
+
+  background: radial-gradient(circle at top, #00c2cb 0%, #0398a0 40%, #0B132B 100%);
+  overflow: hidden;
+}
+
+/* efecto de luz */
+.clientes::before{
+  content: "";
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+
+  background: radial-gradient(circle, rgba(0,194,203,0.35), transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* contenido encima del efecto */
+.contenedor4,
+.titulo-clientes{
+  position: relative;
+  z-index: 2;
 }
 
 .contenedor4 {
